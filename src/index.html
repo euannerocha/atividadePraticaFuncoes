@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function calculateAge(years) {
+            return `Daqui ${years} anos, ${this.name} terá ${this.age + years} anos de idade!`
+        }
+
+        const x = {
+            name: 'Annelise',
+            age: 24,
+        };
+
+        const y = {
+            name: 'Jessica',
+            age: 27,
+        };
+
+        const z = {
+            name: 'Lorenzo',
+            age: 20,
+        };
+
+        console.log(calculateAge.call(x, 20));
+        console.log(calculateAge.apply(y, [20]));
+        console.log(calculateAge.apply(z, [20]));
+    </script>
+
+    <script>
+        const students = [
+            {
+                name: 'João',
+                note: 5,
+                class: '1B'
+            },
+            {
+                name: 'Maria',
+                note: 8,
+                class: '3B'
+            },
+            {
+                name: 'José',
+                note: 6,
+                class: '2C'
+            },
+        ];
+
+        function approvedStudents(students, average) {
+            let approved = [];
+
+            students.forEach(element => {
+                // console.log(element)
+                if(element.note >= average){
+                    approved.push(element.name)
+                }
+                
+            });
+
+            return approved.toString()
+        }
+
+        console.log(approvedStudents(students, 6));
+        console.log(approvedStudents(students, 7));
+        console.log(approvedStudents(students, 5));
+
+    </script>
+</body>
+
+</html>
